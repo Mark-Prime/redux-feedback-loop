@@ -10,7 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 
-const router = require('./routes/pizza.router.js');
+const router = require('./routes/api.router.js');
 app.use('/api/', router);
 
 /** ---------- START SERVER ---------- **/

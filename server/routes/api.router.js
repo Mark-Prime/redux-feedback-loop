@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log('POST /api/');
     let data = req.body
-    let queryText = 'INSERT INTO "feedback" (feeling, understanding, support, comments, flagged), VALUES($1, $2, $3, $4, $5);';
+    console.log(data)
+    let queryText = 'INSERT INTO "feedback" (feeling, understanding, support, comments, flagged) VALUES($1, $2, $3, $4, $5);';
     pool.query(queryText, [data.feeling, data.content, data.support, data.comments, data.flagged]).then(result => {
         
         res.sendStatus(200);

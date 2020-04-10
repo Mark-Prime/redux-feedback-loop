@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import FeelingForm from '../FeelingForm/FeelingForm'
 import ContentForm from '../ContentForm/ContentForm'
 import SupportForm from '../SupportForm/SupportForm'

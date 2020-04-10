@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import { withRouter } from 'react-router-dom';
 import Publish from '@material-ui/icons/Publish'
+import axios from 'axios';
 
 class ReviewAnswers extends Component {
 
@@ -18,6 +19,16 @@ class ReviewAnswers extends Component {
         }
     }
 
+    handleSubmit = () => {
+        axios.post(`/api`, this.props.formSubmit)
+        .then( (response) => {
+            console.log(response)
+            this.props.history.push("/");
+        }).catch( (error) => {
+            alert('Bad things happened...')
+            console.log('Error in post /api', error)
+        })
+    }
 
     render() { 
         return ( 
