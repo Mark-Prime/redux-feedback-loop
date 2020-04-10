@@ -23,7 +23,7 @@ class ReviewAnswers extends Component {
         axios.post(`/api`, this.props.formSubmit)
         .then( (response) => {
             console.log(response)
-            this.props.history.push("/");
+            this.props.history.push("/5");
         }).catch( (error) => {
             alert('Bad things happened...')
             console.log('Error in post /api', error)

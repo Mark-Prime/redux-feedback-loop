@@ -3,6 +3,7 @@ import FeelingForm from '../FeelingForm/FeelingForm'
 import ContentForm from '../ContentForm/ContentForm'
 import SupportForm from '../SupportForm/SupportForm'
 import CommentForm from '../CommentForm/CommentForm'
+import Successful from '../Successful/Successful'
 import ReviewAnswers from '../ReviewAnswers/ReviewAnswers'
 
 
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path='/3' component={SupportForm} />
           <Route path='/4' component={CommentForm} />
           <Route path='/submit' component={ReviewAnswers} />
+          <Route path='/5' component={Successful} />
         </Router>
         <br/>
       </div>
