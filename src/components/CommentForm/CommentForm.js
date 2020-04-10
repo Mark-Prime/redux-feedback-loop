@@ -11,7 +11,7 @@ import Forward from '@material-ui/icons/Forward'
 
 class FeelingForm extends Component {
     state = {
-        value: '3',
+        value: '',
     };
 
     handleChange = event => {

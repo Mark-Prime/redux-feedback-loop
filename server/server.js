@@ -10,6 +10,8 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 
+const router = require('./routes/pizza.router.js');
+app.use('/api/', router);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

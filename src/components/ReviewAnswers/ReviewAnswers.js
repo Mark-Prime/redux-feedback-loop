@@ -11,6 +11,10 @@ class ReviewAnswers extends Component {
     componentDidMount() {
         if(!this.props.formSubmit.feeling){
             this.props.history.push("/");
+        } else if (!this.props.formSubmit.content) {
+            this.props.history.push("/2");
+        } else if (!this.props.formSubmit.support) {
+            this.props.history.push("/3");
         }
     }
 

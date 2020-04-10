@@ -25,6 +25,9 @@ class FeelingForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.props.dispatch({ type: 'UPDATE_STATE', payload: { key: "feeling", value: this.state.value } });
+        if (this.state.value < 3) {
+            this.props.dispatch({ type: 'UPDATE_STATE', payload: { key: "flagged", value: true } });
+        }
         this.props.history.push("/2");
     }
 
