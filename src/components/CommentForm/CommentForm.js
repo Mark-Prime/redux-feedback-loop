@@ -14,6 +14,12 @@ class FeelingForm extends Component {
         value: '',
     };
 
+    componentDidMount() {
+        if (this.props.formSubmit.comments) {
+            this.setState({ value: this.props.formSubmit.comments })
+        }
+    }
+
     handleChange = event => {
         this.setState({ value: event.target.value });
     };
@@ -29,7 +35,7 @@ class FeelingForm extends Component {
         return (
             <Container maxWidth="sm" margin="auto">
                 <Box padding={2}>
-                    <TextField onChange={this.handleChange} id="standard-basic" fullWidth label="Additional Comments" />
+                    <TextField value={this.state.value} onChange={this.handleChange} id="standard-basic" fullWidth label="Additional Comments" />
                 </Box>
                 <Box textAlign="right">
                     <Button variant="contained" color="primary" onClick={this.handleSubmit}>
@@ -41,4 +47,8 @@ class FeelingForm extends Component {
     }
 }
 
-export default withRouter(connect()(FeelingForm));
+const putReduxStateOnProps = (reduxState) => ({
+    formSubmit: reduxState.formSubmit,
+})
+
+export default withRouter(connect(putReduxStateOnProps)(FeelingForm));

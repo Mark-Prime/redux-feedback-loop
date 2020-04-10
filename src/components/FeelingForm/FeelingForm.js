@@ -18,6 +18,12 @@ class FeelingForm extends Component {
         value: '3',
     };
 
+    componentDidMount() {
+        if(this.props.formSubmit.feeling){
+            this.setState({value: this.props.formSubmit.feeling})
+        }
+    }
+
     handleChange = event => {
         this.setState({ value: event.target.value });
     };
@@ -60,5 +66,9 @@ class FeelingForm extends Component {
          );
     }
 }
- 
-export default withRouter(connect()(FeelingForm));
+
+const putReduxStateOnProps = (reduxState) => ({
+    formSubmit: reduxState.formSubmit,
+})
+
+export default withRouter(connect(putReduxStateOnProps)(FeelingForm));

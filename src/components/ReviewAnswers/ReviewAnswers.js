@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button'
 import { withRouter } from 'react-router-dom';
 import Publish from '@material-ui/icons/Publish'
 import axios from 'axios';
+import EditIcon from '@material-ui/icons/Create'
 
 class ReviewAnswers extends Component {
 
@@ -30,6 +31,11 @@ class ReviewAnswers extends Component {
         })
     }
 
+    handleEdit = () => {
+        this.props.dispatch({ type: 'UPDATE_STATE', payload: { key: "flagged", value: false } });
+        this.props.history.push("/");
+    }
+
     render() { 
         return ( 
             <Container className="App" maxWidth="sm" margin="auto">
@@ -39,6 +45,9 @@ class ReviewAnswers extends Component {
                 <h3>Support: {this.props.formSubmit.support}</h3>
                 <h3>Comments: {this.props.formSubmit.comments}</h3>
                 <Box textAlign="right">
+                    <Button variant="contained" padding="5" color="secondary" onClick={this.handleEdit}>
+                        Edit <EditIcon />
+                    </Button>
                     <Button variant="contained" color="primary" onClick={this.handleSubmit}>
                         Submit <Publish />
                     </Button>

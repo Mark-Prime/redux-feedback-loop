@@ -18,6 +18,12 @@ class ContentForm extends Component {
         value: '3',
     };
 
+    componentDidMount() {
+        if (this.props.formSubmit.content) {
+            this.setState({ value: this.props.formSubmit.content })
+        }
+    }
+
     handleChange = event => {
         this.setState({ value: event.target.value });
     };
@@ -61,4 +67,8 @@ class ContentForm extends Component {
     }
 }
 
-export default withRouter(connect()(ContentForm));
+const putReduxStateOnProps = (reduxState) => ({
+    formSubmit: reduxState.formSubmit,
+})
+
+export default withRouter(connect(putReduxStateOnProps)(ContentForm));

@@ -18,6 +18,12 @@ class SupportForm extends Component {
         value: '3',
     };
 
+    componentDidMount() {
+        if (this.props.formSubmit.support) {
+            this.setState({ value: this.props.formSubmit.support })
+        }
+    }
+
     handleChange = event => {
         this.setState({ value: event.target.value });
     };
@@ -61,4 +67,8 @@ class SupportForm extends Component {
     }
 }
 
-export default withRouter(connect()(SupportForm));
+const putReduxStateOnProps = (reduxState) => ({
+    formSubmit: reduxState.formSubmit,
+})
+
+export default withRouter(connect(putReduxStateOnProps)(SupportForm));
