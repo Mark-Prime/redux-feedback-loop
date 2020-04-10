@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
 import Forward from '@material-ui/icons/Forward'
 
 
@@ -30,7 +31,7 @@ class FeelingForm extends Component {
     render() { 
         
         return ( 
-            <Box width={1/2} margin="auto">
+            <Container maxWidth="sm" margin="auto">
                 <Box padding={2}>
                     <FormControl component="fieldset">
                         <FormLabel component="legend">How are you feeling today?</FormLabel>
@@ -52,7 +53,7 @@ class FeelingForm extends Component {
                         Next (1/4) <Forward />
                     </Button>
                 </Box>
-            </Box>
+            </Container>
          );
     }
 }
