@@ -6,16 +6,19 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, } from 'redux';
 import { Provider } from 'react-redux';
 
-const consoleLogger = (state = [], action) => {
-    if (action.type === 'ADD_CUSTOMER') {
-        console.log(action.payload)
+const formSubmit = (state = {}, action) => {
+    if (action.type === 'UPDATE_STATE') {
+        state = {
+            ...state,
+            [action.payload.key]: action.payload.value,
+        }
     }
     return state
 }
 
 const storeInstance = createStore(
     combineReducers({
-        consoleLogger
+        formSubmit
     })
 );
 
