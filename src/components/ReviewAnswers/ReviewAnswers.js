@@ -38,21 +38,27 @@ class ReviewAnswers extends Component {
 
     render() { 
         return ( 
-            <Container className="App" maxWidth="sm" margin="auto">
-                <h1>Review Your Answers</h1>
-                <h3>Feelings: {this.props.formSubmit.feeling}</h3>
-                <h3>Understanding: {this.props.formSubmit.content}</h3>
-                <h3>Support: {this.props.formSubmit.support}</h3>
-                <h3>Comments: {this.props.formSubmit.comments}</h3>
-                <Box textAlign="right">
-                    <Button variant="contained" padding="5" color="secondary" onClick={this.handleEdit}>
-                        Edit <EditIcon />
-                    </Button>
-                    <Button variant="contained" color="primary" onClick={this.handleSubmit}>
-                        Submit <Publish />
-                    </Button>
-                </Box>
-            </Container>
+            <>
+                <header className="App App-header">
+                    <h1 className="App-title">Feedback!</h1>
+                    <h4><i>Don't forget it!</i></h4>
+                </header>
+                <Container className="App" maxWidth="sm" margin="auto">
+                    <h1>Review Your Answers</h1>
+                    <h3>Feelings: {this.props.formSubmit.feeling}</h3>
+                    <h3>Understanding: {this.props.formSubmit.content}</h3>
+                    <h3>Support: {this.props.formSubmit.support}</h3>
+                    <h3>Comments: {this.props.formSubmit.comments}</h3>
+                    <Box textAlign="right">
+                        <Button variant="contained" padding="5" color="secondary" onClick={this.handleEdit}>
+                            Edit <EditIcon />
+                        </Button>
+                        <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+                            Submit <Publish />
+                        </Button>
+                    </Box>
+                </Container>
+            </>
          );
     }
 }

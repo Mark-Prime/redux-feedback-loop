@@ -13,12 +13,18 @@ class Successful extends Component {
 
     render() { 
         return ( 
-            <Container className="App" maxWidth="sm" margin="auto">
-                <h1>Feedback Successfully Submitted</h1>
-                <Button variant="contained" color="primary" onClick={this.handleClick}>
-                    Submit Another
-                </Button>
-            </Container>
+            <>
+                <header className="App App-header">
+                    <h1 className="App-title">Feedback!</h1>
+                    <h4><i>Don't forget it!</i></h4>
+                </header>
+                <Container className="App" maxWidth="sm" margin="auto">
+                    <h1>Feedback Successfully Submitted</h1>
+                    <Button variant="contained" color="primary" onClick={this.handleClick}>
+                        Submit Another
+                    </Button>
+                </Container>
+            </>
          );
     }
 }

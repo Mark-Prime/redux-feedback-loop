@@ -22,6 +22,9 @@ class ContentForm extends Component {
         if (this.props.formSubmit.content) {
             this.setState({ value: this.props.formSubmit.content })
         }
+        if (!this.props.formSubmit.feeling) {
+            this.props.history.push("/");
+        }
     }
 
     handleChange = event => {
@@ -40,29 +43,35 @@ class ContentForm extends Component {
     render() {
 
         return (
-            <Container maxWidth="sm" margin="auto">
-                <Box padding={2}>
-                    <FormControl component="fieldset">
-                        <FormLabel component="legend">How well do you understand the Content?</FormLabel>
-                        <RadioGroup
-                            name="feeling"
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                        >
-                            <FormControlLabel value="5" control={<Radio color="primary" />} label="I've Got this!" />
-                            <FormControlLabel value="4" control={<Radio color="primary" />} label="" />
-                            <FormControlLabel value="3" control={<Radio color="default" />} label="Okay" />
-                            <FormControlLabel value="2" control={<Radio color="secondary" />} label="" />
-                            <FormControlLabel value="1" control={<Radio color="secondary" />} label="Totally Lost" />
-                        </RadioGroup>
-                    </FormControl>
-                </Box>
-                <Box textAlign="right">
-                    <Button variant="contained" color="primary" onClick={this.handleSubmit}>
-                        Next (2/4) <Forward />
-                    </Button>
-                </Box>
-            </Container>
+            <>
+                <header className="App App-header">
+                    <h1 className="App-title">Feedback!</h1>
+                    <h4><i>Don't forget it!</i></h4>
+                </header>
+                <Container maxWidth="sm" margin="auto">
+                    <Box padding={2}>
+                        <FormControl component="fieldset">
+                            <FormLabel component="legend">How well do you understand the Content?</FormLabel>
+                            <RadioGroup
+                                name="feeling"
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                            >
+                                <FormControlLabel value="5" control={<Radio color="primary" />} label="I've Got this!" />
+                                <FormControlLabel value="4" control={<Radio color="primary" />} label="" />
+                                <FormControlLabel value="3" control={<Radio color="default" />} label="Okay" />
+                                <FormControlLabel value="2" control={<Radio color="secondary" />} label="" />
+                                <FormControlLabel value="1" control={<Radio color="secondary" />} label="Totally Lost" />
+                            </RadioGroup>
+                        </FormControl>
+                    </Box>
+                    <Box textAlign="right">
+                        <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+                            Next (2/4) <Forward />
+                        </Button>
+                    </Box>
+                </Container>
+            </>
         );
     }
 }

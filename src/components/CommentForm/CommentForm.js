@@ -18,6 +18,9 @@ class FeelingForm extends Component {
         if (this.props.formSubmit.comments) {
             this.setState({ value: this.props.formSubmit.comments })
         }
+        if (!this.props.formSubmit.feeling) {
+            this.props.history.push("/");
+        }
     }
 
     handleChange = event => {
@@ -33,6 +36,11 @@ class FeelingForm extends Component {
     render() {
 
         return (
+            <>
+            <header className="App App-header">
+                <h1 className="App-title">Feedback!</h1>
+                <h4><i>Don't forget it!</i></h4>
+            </header>
             <Container maxWidth="sm" margin="auto">
                 <Box padding={2}>
                     <TextField value={this.state.value} onChange={this.handleChange} id="standard-basic" fullWidth label="Additional Comments" />
@@ -43,6 +51,7 @@ class FeelingForm extends Component {
                     </Button>
                 </Box>
             </Container>
+            </>
         );
     }
 }

@@ -40,29 +40,35 @@ class FeelingForm extends Component {
     render() { 
         
         return ( 
-            <Container maxWidth="sm" margin="auto">
-                <Box padding={2}>
-                    <FormControl component="fieldset">
-                        <FormLabel component="legend">How are you feeling today?</FormLabel>
-                        <RadioGroup
-                            name="feeling"
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                        >
-                            <FormControlLabel value="5" control={<Radio color="primary" />} label="Feeling Great!" />
-                            <FormControlLabel value="4" control={<Radio color="primary" />} label="" />
-                            <FormControlLabel value="3" control={<Radio color="default" />} label="Okay" />
-                            <FormControlLabel value="2" control={<Radio color="secondary" />} label="" />
-                            <FormControlLabel value="1" control={<Radio color="secondary" />} label="Very Stressed" />
-                        </RadioGroup>
-                    </FormControl>
-                </Box>
-                <Box textAlign="right">
-                    <Button variant="contained" color="primary" onClick={this.handleSubmit}>
-                        Next (1/4) <Forward />
-                    </Button>
-                </Box>
-            </Container>
+            <>
+                <header className="App App-header">
+                    <h1 className="App-title">Feedback!</h1>
+                    <h4><i>Don't forget it!</i></h4>
+                </header>
+                <Container maxWidth="sm" margin="auto">
+                    <Box padding={2}>
+                        <FormControl component="fieldset">
+                            <FormLabel component="legend">How are you feeling today?</FormLabel>
+                            <RadioGroup
+                                name="feeling"
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                            >
+                                <FormControlLabel value="5" control={<Radio color="primary" />} label="Feeling Great!" />
+                                <FormControlLabel value="4" control={<Radio color="primary" />} label="" />
+                                <FormControlLabel value="3" control={<Radio color="default" />} label="Okay" />
+                                <FormControlLabel value="2" control={<Radio color="secondary" />} label="" />
+                                <FormControlLabel value="1" control={<Radio color="secondary" />} label="Very Stressed" />
+                            </RadioGroup>
+                        </FormControl>
+                    </Box>
+                    <Box textAlign="right">
+                        <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+                            Next (1/4) <Forward />
+                        </Button>
+                    </Box>
+                </Container>
+            </>
          );
     }
 }
