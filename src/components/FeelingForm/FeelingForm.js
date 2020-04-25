@@ -19,6 +19,7 @@ class FeelingForm extends Component {
     };
 
     componentDidMount() {
+        // Loads the previous info if any is saved
         if(this.props.formSubmit.feeling){
             this.setState({value: this.props.formSubmit.feeling})
         }
@@ -28,12 +29,19 @@ class FeelingForm extends Component {
         this.setState({ value: event.target.value });
     };
 
+    // Submits the answer up to redux and send sthe user to the next page
     handleSubmit = event => {
-        event.preventDefault();
+        event.preventDefault();// prevents refresh
+
+        // sends content to redux
         this.props.dispatch({ type: 'UPDATE_STATE', payload: { key: "feeling", value: this.state.value } });
+
+        // Automatically flags answers if they give low answers
         if (this.state.value < 3) {
             this.props.dispatch({ type: 'UPDATE_STATE', payload: { key: "flagged", value: true } });
         }
+
+        // Loads next page
         this.props.history.push("/2");
     }
 
